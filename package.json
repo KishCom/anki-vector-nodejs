@@ -1,13 +1,15 @@
 {
   "name": "anki-vector-nodejs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node.js API wrapper for Anki Vector robot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "KishCom/anki-vector-nodejs",
-  "contributors": ["Andrew Kish <andrew@captaindashing.com>"],
+  "contributors": [
+    "Andrew Kish <andrew@captaindashing.com>"
+  ],
   "license": "MIT",
   "keywords": [
     "anki",
