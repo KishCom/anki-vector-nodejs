@@ -1,0 +1,24 @@
+{
+  "name": "anki-vector-nodejs",
+  "version": "0.1.0",
+  "description": "Node.js API wrapper for Anki Vector robot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "KishCom/anki-vector-nodejs",
+  "contributors": ["Andrew Kish <andrew@captaindashing.com>"],
+  "license": "MIT",
+  "keywords": [
+    "anki",
+    "vector",
+    "robot",
+    "grpc"
+  ],
+  "dependencies": {
+    "@grpc/proto-loader": "^0.4.0",
+    "bunyan": "^1.8.12",
+    "google-proto-files": "^0.18.0",
+    "grpc": "^1.18.0"
+  }
+}
