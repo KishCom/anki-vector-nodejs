@@ -1,6 +1,6 @@
 # Anki Vector - Node.js API
 
-![Vector](https://github.com/anki/vector-python-sdk/raw/master/docs/source/images/vector-sdk-alpha.jpg)
+![Vector](https://captaindashing.com/img/vector-node.jpg)
 
 Learn more about Vector: https://www.anki.com/vector
 
