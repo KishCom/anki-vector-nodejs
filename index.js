@@ -41,14 +41,19 @@ var LoggerInterceptor = function(options, nextCall) {
     });
 };
 
-var VectorAPI = function(gRPCDebug){
-    if (!fs.existsSync("./config.js")){
-        console.error("Missing config.js file. Please edit values in config.sample.js and rename it 'config.js'");
-        process.exit(-1);
+var VectorAPI = function(configObj){
+    if (fs.existsSync("./config.js")){
+        config = require("./config.js");
     }
-    config = require("./config.js");
+    if (!configObj){
+        console.error("Missing config.js file or no config object passed in.");
+        throw new Error("Missing config.js file or no config object passed in.");
+    }else{
+        config = configObj;
+    }
+
     // Have the gRPC libs spit out more debug data
-    if (gRPCDebug){
+    if (configObj && configObj.gRPCDebug){
         grpc.setLogVerbosity(0);
     }
     // Configure bunyan logging
@@ -62,11 +67,7 @@ var VectorAPI = function(gRPCDebug){
     });
     // TODO improve detection of these values
     if (!config || !config.VECTOR_NAME || !config.VECTOR_SN || !config.VECTOR_BEARER_TOKEN || !config.VECTOR_IP || !config.VECTOR_CRT){
-        console.error("Missing config.js values. Please edit values in config.sample.js and rename it 'config.js'");
-        process.exit(-1);
-    }
-    if (!fs.existsSync("./config.js")){
-        console.error("Missing config.js file. Please edit values in config.sample.js and rename it 'config.js'");
+        log.error("Missing config.js values. Please edit values in config.sample.js and rename it 'config.js'");
         process.exit(-1);
     }
     var proto = grpc.loadPackageDefinition(
@@ -86,7 +87,7 @@ var VectorAPI = function(gRPCDebug){
     var headerCreds = grpc.credentials.createFromMetadataGenerator((_args, callback) => callback(null, metadata));
     // build ssl credentials using the cert
     if (!fs.existsSync(config.VECTOR_CRT)){
-        console.error("Missing Vector certificate file. Make sure you've got the proper file location specified in your config.js");
+        log.error("Missing Vector certificate file. Make sure you've got the proper file location specified in your config.js");
         process.exit(-1);
     }
     var sslCreds = grpc.credentials.createSsl(fs.readFileSync(config.VECTOR_CRT));
