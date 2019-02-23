@@ -12,17 +12,9 @@ Forums: https://forums.anki.com/
 
 ## Getting Started
 
-You can follow steps [here](https://developer.anki.com/vector/docs/initial.html) to set up your Vector robot with the SDK. After you've got the Python SDK setup and working you can proceed to setup the Node.js API:
+Follow steps [here](https://developer.anki.com/vector/docs/initial.html) to set up your Vector robot with the SDK (future versions of this API will not require this step). After you've got the Python SDK setup and working you can proceed to setup the Node.js API:
 
-0) Install from NPM `npm install anki-vector-nodejs --save`
-1) Copy `node_modules/anki-vector-nodejs/config.sample.js` to `node_modules/anki-vector-nodejs/config.js`
-2) Fill in values in `config.js` you can obtain from `%home%/.anki_vector/sdk_config.ini`
-
-OR
-
-Pass values obtained from `%home%/.anki_vector/sdk_config.ini` directly into the constructor
-
-Then intialize the API and use it!
+Pass values obtained from `%home%/.anki_vector/sdk_config.ini` directly into the constructor. Then intialize the API and use it!
 
 ```javascript
     var VectorAPI = require("anki-vector-nodejs");
@@ -41,7 +33,7 @@ Then intialize the API and use it!
     routes.forEach((route) => {
         console.log(`Route ${route.name} : `);
         console.log(`         req fields: ${JSON.stringify(route.requestFields)}`);
-        console.log(`         res fields: ${JSON.stringify(route.requestFields)}`);
+        console.log(`         res fields: ${JSON.stringify(route.responseFields)}`);
     });
     
     // Actually call a method
