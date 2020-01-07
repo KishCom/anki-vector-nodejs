@@ -56,14 +56,14 @@ var VectorAPI = function(configObj){
     if (configObj && configObj.gRPCDebug){
         grpc.setLogVerbosity(0);
     }
+
     // Configure bunyan logging
-    var logStreams = [{
-        level: config.logLevel, // Priority of levels looks like this: Trace -> Debug -> Info -> Warn -> Error -> Fatal
-        stream: process.stdout
-    }];
     log = bunyan.createLogger({
         name: packagejson.name + " " + packagejson.version,
-        streams: logStreams
+        streams: [{
+            level: config.DEBUG_LEVEL, // Priority of levels looks like this: Trace -> Debug -> Info -> Warn -> Error -> Fatal
+            stream: process.stdout
+        }]
     });
     // TODO improve detection of these values
     if (!config || !config.VECTOR_NAME || !config.VECTOR_SN || !config.VECTOR_BEARER_TOKEN || !config.VECTOR_IP || !config.VECTOR_CRT){

@@ -1,6 +1,6 @@
 {
   "name": "anki-vector-nodejs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Node.js API wrapper for Anki Vector robot",
   "main": "index.js",
   "scripts": {
@@ -18,9 +18,9 @@
     "grpc"
   ],
   "dependencies": {
-    "@grpc/proto-loader": "^0.5.1",
+    "@grpc/proto-loader": "^0.5.3",
     "bunyan": "^1.8.12",
-    "google-proto-files": "^1.1.0",
-    "grpc": "^1.23.3"
+    "google-proto-files": "^1.1.2",
+    "grpc": "^1.24.2"
   }
 }
