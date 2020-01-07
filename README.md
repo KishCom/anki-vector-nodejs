@@ -14,7 +14,7 @@ Forums: https://forums.anki.com/
 
 Follow steps [here](https://developer.anki.com/vector/docs/initial.html) to set up your Vector robot with the SDK (future versions of this API will not require this step). After you've got the Python SDK setup and working you can proceed to setup the Node.js API:
 
-Pass values obtained from `%home%/.anki_vector/sdk_config.ini` directly into the constructor. Then intialize the API and use it!
+Pass values obtained from `%home%/.anki_vector/sdk_config.ini` directly into the constructor. Then initialize the API and use it!
 
 ```javascript
     var VectorAPI = require("anki-vector-nodejs");
