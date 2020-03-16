@@ -36,7 +36,7 @@ var LoggerInterceptor = function(options, nextCall) {
         },
         cancel(message, next) {
             log.trace("cancel", message);
-            next();
+            next(message);
         }
     });
 };

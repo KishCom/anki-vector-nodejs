@@ -4,7 +4,7 @@
 
 Learn more about Vector: https://www.anki.com/vector
 
-gRPC calls this library has access to: https://developer.anki.com/vector/docs/generated/anki_vector.messaging.client.html
+gRPC calls this library has access to: https://developer.anki.com/vector/docs/proto.html#anki_vector/messaging/external_interface.proto
 
 Python SDK documentation: http://developer.anki.com/vector/docs/
 
@@ -45,6 +45,19 @@ Pass values obtained from `%home%/.anki_vector/sdk_config.ini` directly into the
         console.log(result);
     });
 ```
+
+Make Vector say something:
+
+```javascript
+    vector.client.SayText({"text": "Hello Everyone", "use_vector_voice": true, "duration_scalar": "1.0"}, (err, result) => {
+        if (err){
+            console.log("Error", err);
+        }else{
+            console.log(result);
+        }
+    });
+```
+
 ## Logging
 
 Built in logger uses [Bunyan](https://github.com/trentm/node-bunyan). Totally optionally, you can get the logger instance by calling `getLogger()` like this:

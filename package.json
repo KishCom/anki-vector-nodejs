@@ -1,6 +1,6 @@
 {
   "name": "anki-vector-nodejs",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Node.js API wrapper for Anki Vector robot",
   "main": "index.js",
   "scripts": {
