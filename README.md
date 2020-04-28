@@ -1,12 +1,16 @@
 # Anki Vector - Node.js API
 
+## NOTICE:
+
+The project is largely unmaintained as I have purchased and am waiting for the "Open Source Kit" and "Escape Pod" from [Digital Dream Labs](https://www.digitaldreamlabs.com/pages/digital-dream-labs-vector), the company that bought Vector from Anki. I am sure those releases (estimated July 2020) will obsolete this package.
+
 ![Vector](https://captaindashing.com/img/vector-node.jpg)
 
 Learn more about Vector: https://www.anki.com/vector
 
 gRPC calls this library has access to: https://developer.anki.com/vector/docs/proto.html#anki_vector/messaging/external_interface.proto
 
-Python SDK documentation: http://developer.anki.com/vector/docs/
+Python SDK documentation: https://developer.anki.com/vector/docs/index.html
 
 Forums: https://forums.anki.com/
 
@@ -58,31 +62,6 @@ Make Vector say something:
     });
 ```
 
-## Logging
-
-Built in logger uses [Bunyan](https://github.com/trentm/node-bunyan). Totally optionally, you can get the logger instance by calling `getLogger()` like this:
-
-```javascript
-    var VectorAPI = require("anki-vector-nodejs");
-    var vector = new VectorAPI({
-        VECTOR_SN: "01234567",
-        VECTOR_NAME: "Vector-R2D2",
-        VECTOR_IP: "192.168.2.42",
-        VECTOR_BEARER_TOKEN: "abcdefghijkl1234567890==",
-        VECTOR_CRT: "/home/user/.anki_vector/Vector-R2D2-01234567.cert",
-        DEBUG_LEVEL: "info" // Not found in the sdk_config.ini. Available options: "trace", "debug", "info", "error", "fatal"
-    });
-    const log = vector.getLogger();
-    log.trace("I'm a trace");
-    log.debug("I'm a debug");
-    log.info("I'm an info");
-    log.warn("I'm an warn");
-    log.error("I'm an error");
-    log.fatal("I'm an fatal");
-```
-
-Then you can use the Bunyan tool (`npm intall bunyan -g`) to view a pretty output by piping your output: `node my-vector-app.js | bunyan`
-
 ## Privacy Policy and Terms and Conditions
 
-This Node.js library is a personal project and IS NOT affilated with Anki Inc. Please post issues in the [Github issue tracker](https://github.com/KishCom/anki-vector-nodejs/issues) rather than to Anki support.
+This Node.js library is a personal project and IS NOT affilated with Anki Inc or Digital Dream Labs. Please post issues in the [Github issue tracker](https://github.com/KishCom/anki-vector-nodejs/issues) rather than to Anki or Digital Dream Labs support.
