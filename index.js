@@ -1,4 +1,5 @@
 const grpc = require("grpc");
+const path = require("path")
 const fs = require("fs");
 const protoLoader = require("@grpc/proto-loader");
 const bunyan = require("bunyan");
@@ -71,13 +72,13 @@ var VectorAPI = function(configObj){
         process.exit(-1);
     }
     var proto = grpc.loadPackageDefinition(
-        protoLoader.loadSync("./protobufs/anki_vector/messaging/external_interface.proto", {
+        protoLoader.loadSync(path.join(__dirname, "./protobufs/anki_vector/messaging/external_interface.proto"), {
             keepCase: true,
             longs: String,
             enums: String,
             defaults: true,
             oneofs: true,
-            includeDirs: ['node_modules/google-proto-files', 'protobufs']
+            includeDirs: ["node_modules/google-proto-files", path.join(__dirname, "protobufs")]
         })
     );
 
@@ -104,13 +105,13 @@ var VectorAPI = function(configObj){
 
 VectorAPI.prototype.listMethods = function(){
     const proto = grpc.loadPackageDefinition(
-        protoLoader.loadSync("./protobufs/anki_vector/messaging/external_interface.proto", {
+        protoLoader.loadSync(path.join(__dirname, "./protobufs/anki_vector/messaging/external_interface.proto"), {
             keepCase: true,
             longs: String,
             enums: String,
             defaults: true,
             oneofs: true,
-            includeDirs: ['node_modules/google-proto-files', 'protobufs']
+            includeDirs: ["node_modules/google-proto-files", path.join(__dirname, "protobufs")]
         })
     );
     let finalRoutes = {};
